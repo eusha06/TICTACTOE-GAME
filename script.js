@@ -1,12 +1,10 @@
-// Tic Tac Toe Frontend + Minimax AI
-// Port of Python logic to JavaScript
 
 const X = 'X';
 const O = 'O';
 const EMPTY = null;
 
 let board = initialState();
-let humanStarts = true; // Whether human is X
+let humanStarts = true; 
 let gameOver = false;
 
 const boardEl = document.getElementById('board');
@@ -74,7 +72,6 @@ function utility(b) {
   return 0;
 }
 
-// Minimax with alpha-beta pruning for efficiency
 function minimaxDecision(b) {
   if (terminal(b)) return null;
   const player = currentPlayer(b);
@@ -107,7 +104,7 @@ function maxValue(b, alpha, beta) {
   let v = -Infinity;
   for (const act of actions(b)) {
     v = Math.max(v, minValue(result(b, act), alpha, beta));
-    if (v >= beta) return v; // prune
+    if (v >= beta) return v; 
     alpha = Math.max(alpha, v);
   }
   return v;
@@ -118,7 +115,7 @@ function minValue(b, alpha, beta) {
   let v = Infinity;
   for (const act of actions(b)) {
     v = Math.min(v, maxValue(result(b, act), alpha, beta));
-    if (v <= alpha) return v; // prune
+    if (v <= alpha) return v; 
     beta = Math.min(beta, v);
   }
   return v;
@@ -171,8 +168,8 @@ function highlightWinningCells() {
 
 function isHumanTurn() {
   const player = currentPlayer(board);
-  if (player === X) return humanStarts; // X is human if selected
-  return !humanStarts; // O is human if X was AI
+  if (player === X) return humanStarts; 
+  return !humanStarts;
 }
 
 function onCellClick(e) {
@@ -192,7 +189,7 @@ function postMove() {
     return;
   }
   render();
-  // AI move if it's AI's turn
+ 
   if (!gameOver && !isHumanTurn()) {
     statusEl.textContent = 'AI thinking...';
     setTimeout(() => {
@@ -200,7 +197,7 @@ function postMove() {
       if (act) board = result(board, act);
       if (terminal(board)) gameOver = true;
       render();
-    }, 80); // tiny delay for UX
+    }, 80); \
   }
 }
 
@@ -221,7 +218,7 @@ function newGame() {
   board = initialState();
   gameOver = false;
   humanStarts = playerSelectEl.value === 'human';
-  // If AI starts, let AI play first immediately
+
   render();
   if (!isHumanTurn() && !gameOver) {
     statusEl.textContent = 'AI thinking...';
@@ -237,6 +234,7 @@ function newGame() {
 newGameBtn.addEventListener('click', newGame);
 playerSelectEl.addEventListener('change', newGame);
 
-// Initialize
+
 statusEl.textContent = 'Ready';
 render();
+
