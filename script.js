@@ -1,4 +1,3 @@
-
 const X = 'X';
 const O = 'O';
 const EMPTY = null;
@@ -237,4 +236,5 @@ playerSelectEl.addEventListener('change', newGame);
 
 statusEl.textContent = 'Ready';
 render();
+
 
