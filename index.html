@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tic Tac Toe (Minimax AI)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Tic Tac Toe</h1>
+    <div class="controls">
+      <label for="playerSelect">Who starts?</label>
+      <select id="playerSelect">
+        <option value="human">Human (X)</option>
+        <option value="ai">AI (X)</option>
+      </select>
+      <button id="newGameBtn">New Game</button>
+    </div>
+    <div id="status" class="status">Loading...</div>
+    <div id="board" class="board" aria-label="Tic Tac Toe board" role="grid"></div>
+    <div class="legend">
+      <p><strong>X</strong>: First player | <strong>O</strong>: Second player</p>
+      <p>AI uses Minimax to choose optimal moves.</p>
+    </div>
+    <footer>
+      <p>Host this folder with GitHub Pages to play online.</p>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
